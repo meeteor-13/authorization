@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - changeSet:
+      id: init_authority_table
+      author: solairerove@gmail.com
+      changes:
+        - createTable:
+            tableName: authority
+            columns:
+              - column:
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_authority
+                  name: a_id
+                  type: uuid
+              - column:
+                  name: a_name
+                  type: VARCHAR(64)
+              - column:
+                  constraints:
+                    nullable: false
+                  defaultValueComputed: NOW()
+                  name: a_created
+                  type: TIMESTAMP
+              - column:
+                  constraints:
+                    nullable: false
+                  defaultValueComputed: NOW()
+                  name: a_modified
+                  type: TIMESTAMP
+              - column:
+                  name: a_deactivated
+                  type: TIMESTAMP
+  - changeSet:
+      id: add_default_value_to_primary_key_authority
+      author: solairerove@gmail.com
+      changes:
+        - addDefaultValue:
+            columnDataType: uuid
+            columnName: a_id
+            defaultValueComputed: uuid_generate_v4()
+            tableName: authority

@@ -2,3 +2,12 @@ databaseChangeLog:
   - include:
       file: init/db.changelog-init.yaml
       relativeToChangelogFile: true
+  - include:
+      file: user/db.changelog-user.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: authority/db.changelog-authority.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: users-authorities/db.changelog-users-authorities.yaml
+      relativeToChangelogFile: true
