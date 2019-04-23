@@ -1,0 +1,39 @@
+server:
+  port: 8080
+
+datasource:
+  host: 'localhost:5432'
+  db: 'meeteor'
+  schema: 'authorization'
+  url: 'jdbc:postgresql://${datasource.host}/${datasource.db}?currentSchema=${datasource.schema}'
+  username: 'authorization_user'
+  password: 'authorization_pass'
+spring:
+  application:
+    name: 'authorization'
+  jpa:
+    properties:
+      hibernate.dialect: org.hibernate.dialect.PostgreSQL95Dialect
+      hibernate.show_sql: true
+      hibernate.format_sql: true
+      hibernate.type: trace
+      hibernate.temp.use_jdbc_metadata_defaults: false
+    hibernate:
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+  datasource:
+    name: 'MeeteorPostgres'
+    driver-class-name: 'org.postgresql.Driver'
+    url: '${datasource.url}'
+    username: '${datasource.username}'
+    password: '${datasource.password}'
+  liquibase:
+    url: '${datasource.url}'
+    user: '${datasource.username}'
+    password: '${datasource.password}'
+
+logging:
+  level:
+    org.springframework: WARN
+    org.hibernate: WARN
+    liquibase: WARN
