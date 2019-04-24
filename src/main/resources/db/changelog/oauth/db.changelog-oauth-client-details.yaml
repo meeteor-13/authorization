@@ -1,0 +1,44 @@
+databaseChangeLog:
+  - changeSet:
+      id: init_oauth_client_details_table
+      author: solairerove@gmail.com
+      changes:
+        - createTable:
+            tableName: oauth_client_details
+            columns:
+              - column:
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_oauth_client_details
+                  name: client_id
+                  type: VARCHAR(255)
+              - column:
+                  name: resource_ids
+                  type: VARCHAR(255)
+              - column:
+                  name: client_secret
+                  type: VARCHAR(255)
+              - column:
+                  name: scope
+                  type: VARCHAR(255)
+              - column:
+                  name: authorized_grant_type
+                  type: VARCHAR(255)
+              - column:
+                  name: web_server_redirect_uri
+                  type: VARCHAR(255)
+              - column:
+                  name: authorities
+                  type: VARCHAR(255)
+              - column:
+                  name: access_token_validity
+                  type: INTEGER
+              - column:
+                  name: refresh_token_validity
+                  type: INTEGER
+              - column:
+                  name: additional_information
+                  type: VARCHAR(4096)
+              - column:
+                  name: autoapprove
+                  type: VARCHAR(255)

@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - changeSet:
+      id: init_oauth_access_token_table
+      author: solairerove@gmail.com
+      changes:
+        - createTable:
+            tableName: oauth_access_token
+            columns:
+              - column:
+                  name: token_id
+                  type: VARCHAR(255)
+              - column:
+                  name: token
+                  type: BYTEA
+              - column:
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_oauth_access_token
+                  name: authentication_id
+                  type: VARCHAR(255)
+              - column:
+                  name: user_name
+                  type: VARCHAR(255)
+              - column:
+                  name: client_id
+                  type: VARCHAR(255)
+              - column:
+                  name: authentication
+                  type: BYTEA
+              - column:
+                  name: refresh_token
+                  type: VARCHAR(255)

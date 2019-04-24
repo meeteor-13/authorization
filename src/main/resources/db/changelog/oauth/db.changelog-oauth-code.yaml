@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: init_oauth_code_table
+      author: solairerove@gmail.com
+      changes:
+        - createTable:
+            tableName: oauth_code
+            columns:
+              - column:
+                  name: code
+                  type: VARCHAR(255)
+              - column:
+                  name: authentication
+                  type: BYTEA
