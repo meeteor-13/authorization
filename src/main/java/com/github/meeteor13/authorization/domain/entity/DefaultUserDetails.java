@@ -36,11 +36,11 @@ public class DefaultUserDetails implements UserDetails {
     @Column(name = "u_id")
     private UUID id;
 
-    @Column(name = "u_password")
-    private String password;
-
     @Column(name = "u_username")
     private String username;
+
+    @Column(name = "u_password")
+    private String password;
 
     @EqualsAndHashCode.Exclude
     @Column(name = "u_account_non_expired")
