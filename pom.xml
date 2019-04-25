@@ -117,7 +117,6 @@
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                     <release>${java.version}</release>
-                    <verbose>true</verbose>
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.mapstruct</groupId>
