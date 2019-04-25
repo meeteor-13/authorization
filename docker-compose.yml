@@ -1,0 +1,35 @@
+version: "3.7"
+
+services:
+  postgres:
+    container_name: authorization-postgres
+    image: postgres:9.5-alpine
+    ports:
+      - "5432:5432"
+    networks:
+      - internal
+    environment:
+      - POSTGRES_USER=meeteor_user
+      - POSTGRES_PASSWORD=strongpwd
+      - POSTGRES_DB=meeteor
+    volumes:
+      - ./devtools/init/postgres:/docker-entrypoint-initdb.d
+      - platform-postgres-db:/var/lib/postgresql
+
+#  authorization:
+#    depends_on:
+#      - postgres
+#    container_name: authorization
+#    image: meeteor13/authorization:latest
+#    build: .
+#    ports:
+#      - 8090:8090
+#    networks:
+#      - internal
+
+volumes:
+  platform-postgres-db:
+
+networks:
+  internal:
+    driver: bridge
