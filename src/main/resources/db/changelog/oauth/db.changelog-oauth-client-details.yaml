@@ -42,3 +42,11 @@ databaseChangeLog:
               - column:
                   name: autoapprove
                   type: VARCHAR(255)
+  - changeSet:
+      id: rename_authorized_grant_type
+      author: solairerove@gmail.com
+      changes:
+        - renameColumn:
+            oldColumnName: authorized_grant_type
+            newColumnName: authorized_grant_types
+            tableName: oauth_client_details

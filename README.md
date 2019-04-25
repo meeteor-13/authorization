@@ -64,3 +64,24 @@ Stop and remove containers, networks, images:
 ```
 docker-compose down
 ```
+
+## To perform requests
+
+### Password flow
+
+Retrieve access token
+```
+curl -X POST \
+  http://localhost:8080/oauth/token \
+  -H 'Authorization: Basic Z3JlZXRpbmctc2VydmljZTpncmVldGluZy1zZWNyZXQ=' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  -d 'grant_type=password&username=solairerove&password=strongpwd'
+```
+
+Check access token
+```
+curl -X POST \
+  'http://localhost:8080/oauth/check_token?token=840237df-9c14-4ca8-9449-35dfed7e52ba' \
+  -H 'Authorization: Basic Z3JlZXRpbmctc2VydmljZTpncmVldGluZy1zZWNyZXQ=' \
+  -H 'cache-control: no-cache'
+```
