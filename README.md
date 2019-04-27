@@ -22,50 +22,28 @@
 * [Maven](https://maven.apache.org/)
 * [Spring](https://spring.io/)
 
-## Env Prerequisites
-
-```
-✗ java -version
-  openjdk version "11.0.2" 2019-01-15 LTS
-  OpenJDK Runtime Environment Zulu11.29+3-CA (build 11.0.2+7-LTS)
-  OpenJDK 64-Bit Server VM Zulu11.29+3-CA (build 11.0.2+7-LTS, mixed mode)
-
-✗ mvn -v
-  Apache Maven 3.6.1 (d66c9c0b3152b2e69ee9bac180bb8fcc8e6af555; 2019-04-04T22:00:29+03:00)
-  Maven home: /Users/solairerove/.sdkman/candidates/maven/current
-  Java version: 11.0.2, vendor: Azul Systems, Inc., runtime: /Users/solairerove/.sdkman/candidates/java/11.0.2-zulu
-  Default locale: en_BY, platform encoding: UTF-8
-  OS name: "mac os x", version: "10.14.4", arch: "x86_64", family: "mac"
-
-✗ docker -v
-  Docker version 18.09.2, build 6247962
-
-✗ docker-compose -v
-  docker-compose version 1.23.2, build 1110ad01
-```
-
 ## Usage
 
 ### Local
 
 Run application:
 ```
-mvn spring-boot:run
+./mvnw spring-boot:run
 ```
 
 Run tests:
 ```
-mvn test
+./mvnw test
 ```
 
 Build application artifact:
 ```
-mvn clean install
+./mvnw clean install
 ```
 
 Build application artifacts (without tests):
 ```
-mvn clean install -Dmaven.test.skip=true
+./mvnw clean install -Dmaven.test.skip=true
 ```
 
 ### Docker

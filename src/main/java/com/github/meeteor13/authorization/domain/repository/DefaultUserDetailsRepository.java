@@ -12,7 +12,6 @@ import java.util.UUID;
 @Repository
 public interface DefaultUserDetailsRepository extends JpaRepository<DefaultUserDetails, UUID> {
 
-    @Query(value = "select * from \"authorization\".user "
-        + "where \"authorization\".user.u_username = ?1", nativeQuery = true)
+    @Query(value = "select * from \"user\" where \"user\".u_username = ?1", nativeQuery = true)
     Optional<DefaultUserDetails> findOneByUsername(@Param("username") String username);
 }

@@ -1,13 +1,6 @@
 server:
   port: 8080
 
-datasource:
-  host: 'localhost:5432'
-  db: 'meeteor'
-  schema: 'authorization'
-  url: 'jdbc:postgresql://${datasource.host}/${datasource.db}?currentSchema=${datasource.schema}'
-  username: 'authorization_user'
-  password: 'authorization_pass'
 spring:
   application:
     name: 'authorization'
@@ -25,13 +18,7 @@ spring:
   datasource:
     name: 'MeeteorPostgres'
     driver-class-name: 'org.postgresql.Driver'
-    url: '${datasource.url}'
-    username: '${datasource.username}'
-    password: '${datasource.password}'
-  liquibase:
-    url: '${datasource.url}'
-    user: '${datasource.username}'
-    password: '${datasource.password}'
+    url: 'jdbc:postgresql://localhost:5433/meeteor13?user=meeteor13&password=meeteor13'
 
 logging:
   level:

@@ -20,7 +20,7 @@ LABEL name="meeteor13-authorization" \
 
 ARG WORK_DIR=/meeteor13
 
-ENV SERVER_PORT=8090 \
+ENV SERVER_PORT=80 \
     JAVA_OPTS=""
 
 WORKDIR $WORK_DIR

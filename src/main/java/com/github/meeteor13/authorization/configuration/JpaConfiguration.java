@@ -1,4 +1,4 @@
-package com.github.meeteor13.authorization.domain.configuration;
+package com.github.meeteor13.authorization.configuration;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Configuration;

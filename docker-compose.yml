@@ -1,34 +1,34 @@
 version: "3.7"
 
 services:
-  postgres:
-    container_name: authorization-postgres
-    image: postgres:9.5-alpine
+  authorization-db:
+    container_name: authorization-db
+    image: postgres:11.2
     ports:
-      - "5432:5432"
+      - "5433:5432"
     networks:
       - internal
     environment:
-      - POSTGRES_USER=meeteor_user
-      - POSTGRES_PASSWORD=strongpwd
-      - POSTGRES_DB=meeteor
+      - POSTGRES_USER=meeteor13
+      - POSTGRES_PASSWORD=meeteor13
+      - POSTGRES_DB=meeteor13
     volumes:
       - ./devtools/init/postgres:/docker-entrypoint-initdb.d
-      - platform-postgres-db:/var/lib/postgresql
+      - authorization-db:/var/lib/postgresql
 
 #  authorization:
 #    depends_on:
-#      - postgres
+#      - authorization-db
 #    container_name: authorization
 #    image: meeteor13/authorization:latest
 #    build: .
 #    ports:
-#      - 8090:8090
+#      - 8081:80
 #    networks:
 #      - internal
 
 volumes:
-  platform-postgres-db:
+  authorization-db:
 
 networks:
   internal:
