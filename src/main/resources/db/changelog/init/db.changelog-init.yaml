@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - property:
+      name: uuid_function
+      dbms: postgresql
+      value: public.uuid_generate_v4()
+  - property:
+      name: uuid_function
+      dbms: postgresql
+      value: authorization.uuid_generate_v4()

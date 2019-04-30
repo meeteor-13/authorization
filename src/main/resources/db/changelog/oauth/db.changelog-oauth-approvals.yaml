@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: init_oauth_approvals_table
+      author: solairerove@gmail.com
+      changes:
+        - createTable:
+            tableName: oauth_approvals
+            columns:
+              - column:
+                  name: userId
+                  type: VARCHAR(255)
+              - column:
+                  name: clientId
+                  type: VARCHAR(255)
+              - column:
+                  name: scope
+                  type: VARCHAR(255)
+              - column:
+                  name: status
+                  type: VARCHAR(10)
+              - column:
+                  name: expiresAt
+                  type: TIMESTAMP
+              - column:
+                  name: lastModifiedAt
+                  type: TIMESTAMP

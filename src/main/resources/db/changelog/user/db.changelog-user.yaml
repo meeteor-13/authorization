@@ -1,0 +1,60 @@
+databaseChangeLog:
+  - changeSet:
+      id: init_user_table
+      author: solairerove@gmail.com
+      changes:
+        - createTable:
+            tableName: user
+            columns:
+              - column:
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_user
+                  name: u_id
+                  type: uuid
+              - column:
+                  name: u_username
+                  type: VARCHAR(64)
+              - column:
+                  name: u_password
+                  type: VARCHAR(256)
+              - column:
+                  name: u_account_non_expired
+                  type: BOOLEAN
+                  defaultValue: true
+              - column:
+                  name: u_account_non_locked
+                  type: BOOLEAN
+                  defaultValue: true
+              - column:
+                  name: u_credentials_non_expired
+                  type: BOOLEAN
+                  defaultValue: true
+              - column:
+                  name: u_enabled
+                  type: BOOLEAN
+                  defaultValue: true
+              - column:
+                  constraints:
+                    nullable: false
+                  defaultValueComputed: NOW()
+                  name: u_created
+                  type: TIMESTAMP
+              - column:
+                  constraints:
+                    nullable: false
+                  defaultValueComputed: NOW()
+                  name: u_modified
+                  type: TIMESTAMP
+              - column:
+                  name: u_deactivated
+                  type: TIMESTAMP
+  - changeSet:
+      id: add_default_value_to_primary_key_user
+      author: solairerove@gmail.com
+      changes:
+        - addDefaultValue:
+            columnDataType: uuid
+            columnName: u_id
+            defaultValueComputed: uuid_generate_v4()
+            tableName: user
