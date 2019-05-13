@@ -1,7 +1,7 @@
 version: "3.7"
 
 services:
-  authorization-db:
+  authorization_db:
     container_name: authorization-db
     image: postgres:11.2
     environment:
@@ -13,24 +13,30 @@ services:
     networks:
       - internal
     volumes:
-      - ./devtools/init/postgres:/docker-entrypoint-initdb.d
-      - authorization-db:/var/lib/postgresql
+      - authorization_db:/var/lib/postgresql
 
-  authorization:
-    container_name: authorization
-    image: meeteor13/authorization:latest
-    build: .
+  keycloak:
+    container_name: keycloak
+    image: jboss/keycloak:6.0.1
     depends_on:
-      - authorization-db
+      - authorization_db
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://authorization-db:5432/meeteor13?user=meeteor13&password=meeteor13
+      DB_VENDOR: POSTGRES
+      DB_ADDR: authorization_db
+      DB_PORT: 5432
+      DB_DATABASE: meeteor13
+      DB_SCHEMA: public
+      DB_USER: meeteor13
+      DB_PASSWORD: meeteor13
+      KEYCLOAK_USER: solairerove
+      KEYCLOAK_PASSWORD: 2033
     ports:
-      - 8081:80
+      - 8081:8080
     networks:
       - internal
 
 volumes:
-  authorization-db:
+  authorization_db:
 
 networks:
   internal:
