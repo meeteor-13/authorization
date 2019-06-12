@@ -28,8 +28,8 @@ services:
       DB_SCHEMA: public
       DB_USER: meeteor13
       DB_PASSWORD: meeteor13
-      KEYCLOAK_USER: solairerove
-      KEYCLOAK_PASSWORD: 2033
+      KEYCLOAK_USER: meeteor13
+      KEYCLOAK_PASSWORD: meeteor13
     ports:
       - 8081:8080
     networks:
