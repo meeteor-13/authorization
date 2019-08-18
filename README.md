@@ -21,3 +21,9 @@ Stop and remove containers, networks, images:
 ```
 docker-compose down
 ```
+
+### How to use
+
+So, all necessary public urls are here:
+
+`http://localhost:8081/auth/realms/meeteor13/.well-known/openid-configuration`
